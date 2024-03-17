@@ -1,0 +1,24 @@
+{
+    "name": "an report",
+    "dateCreated": "2024-03-17",
+    "timeCreated": "13:51:24",
+    "version": 1,
+    "author": "Stevo",
+    "questions": [
+        {
+            "text": "Question1",
+            "answer": "Yes",
+            "possibleAnswers": [
+                "Yes",
+                "No",
+                "Kinda"
+            ],
+            "additionalInfo":"fdsjflksdjfksdflj"
+        },
+        {
+            "text": "Question2",
+            "answer": "Yuyutiuityues",
+            "possibleAnswers": "openEnded"
+        }
+    ]
+}
