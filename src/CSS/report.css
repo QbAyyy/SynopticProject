@@ -1,3 +1,5 @@
+/* report.css */
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -17,6 +19,7 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Add a shadow effect */
+    max-width: 80%; /* Adjust modal width as needed */
   }
   
   .close-btn {
@@ -34,9 +37,6 @@
     color: #000; /* Change color on hover */
   }
   
-  pre {
-    white-space: pre-wrap; /* Ensure line breaks are preserved */
-  }
   .file-name-container {
     display: flex;
     justify-content: space-between;
@@ -45,5 +45,41 @@
   
   .file-name-container button {
     margin-left: 10px; /* Adjust margin as needed */
+  }
+
+  .question-item {
+    margin-bottom: 10px;
+  }
+  
+  .question-text {
+    font-weight: bold;
+  }
+  
+  .score {
+    font-weight: bold;
+  }
+  
+  .score-0 {
+    color: red;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  
+  .score-1 {
+    color: #f8cc07;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  
+  .score-2 {
+    color: rgb(175, 241, 67);
+    font-weight: bold;
+    font-size: 30px;
+  }
+  
+  .score-3 {
+    color: green;
+    font-weight: bold;
+    font-size: 30px;
   }
   

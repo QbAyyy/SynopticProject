@@ -1,0 +1,79 @@
+{
+  "name": "ReeePort",
+  "dateCreated": "2024-03-17",
+  "timeCreated": "21:10:28",
+  "version": 1,
+  "author": "Me",
+  "questions": [
+    {
+      "text": "Does the privacy policy clearly identify the data controller and provide contact details?",
+      "answer": "Yes, the data controller is clearly identified with full contact details.",
+      "score": 3
+    },
+    {
+      "text": "Is the purpose of data processing clearly stated and justified within the policy?",
+      "answer": "Partially, the purpose is stated but not fully justified or clear.",
+      "score": 2
+    },
+    {
+      "text": "Are the specific purposes for processing personal data clearly defined and limited?",
+      "answer": "Partially, purposes are defined but not clearly limited.",
+      "score": 2
+    },
+    {
+      "text": "Is there a clear explanation of how collecting personal data serves these purposes?",
+      "answer": "Vaguely, the explanation of data collection is incomplete or unclear.",
+      "score": 1
+    },
+    {
+      "text": "Does the policy ensure that only the necessary personal data for the specified purposes are collected and processed?",
+      "answer": "Yes, the policy ensures only necessary data for specified purposes are collected.",
+      "score": 3
+    },
+    {
+      "text": "Are there mechanisms in place to ensure that personal data is kept accurate and up-to-date?",
+      "answer": "",
+      "score": 0
+    },
+    {
+      "text": "Does the policy specify the retention period for personal data",
+      "answer": "",
+      "score": 0
+    },
+    {
+      "text": "What security measures are described to protect personal data against unauthorized or unlawful processing and against accidental loss, destruction, or damage?",
+      "answer": "",
+      "score": 0
+    },
+    {
+      "text": "Does the policy clearly outline the rights of data subjects, including the right to access, correct, delete, or restrict the processing of their personal data?",
+      "answer": "",
+      "score": 0
+    },
+    {
+      "text": "Does the policy address the use of automated decision-making and profiling, and if so, does it explain the logic involved and its significance and consequences for the data subject?",
+      "answer": "",
+      "score": 0
+    },
+    {
+      "text": "If the smart cameras use facial recognition or other biometric profiling, how is this addressed in the policy? Are individuals informed about the use of such technologies?",
+      "answer": "",
+      "score": 0
+    },
+    {
+      "text": "How does the policy address the issue of consent for collecting data through smart cameras, particularly in areas where individuals may not have a choice in being observed?",
+      "answer": "",
+      "score": 0
+    },
+    {
+      "text": "Is there a clear procedure for notifying the supervisory authority and affected data subjects in case of a data breach?",
+      "answer": "",
+      "score": 0
+    },
+    {
+      "text": "If a Data Protection Officer is required, does the policy provide details about the DPO, including contact information?",
+      "answer": "",
+      "score": 0
+    }
+  ]
+}
