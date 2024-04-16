@@ -8,8 +8,8 @@ const TopBar = ({ darkMode, onToggleDarkMode }) => {
 	};
 
 	return (
-		<div className="top-bar">
-			<div className='title'>PrivacyProtect</div>
+		<div className={darkMode ? "top-bar-dark":"top-bar"}>
+			<div className={darkMode ? "title-dark" : 'title'}>PrivacyProtect</div>
 			
 			<div className='toggle-container'>
 				<input

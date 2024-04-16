@@ -8,10 +8,32 @@
     position: fixed;
     top: 0;
     z-index: 1000;
+    transition: background-color 0.3s ease;
+  }
+
+  .top-bar-dark{
+    background-color: #ff5722;
+    padding: 10px 20px; /* Add some padding on the sides */
+    display: flex;
+    justify-content: space-between; /* Changed from space-around to space-between */
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
   }
   
   .title {
     color: whitesmoke;
+    font-size: 2em;
+    font-family: 'Trebuchet MS', sans-serif;
+    margin-left: 20px; /* Give some space from the left edge */
+    padding-right: 20px;
+  }
+
+  .title-dark {
+    color: #333;
     font-size: 2em;
     font-family: 'Trebuchet MS', sans-serif;
     margin-left: 20px; /* Give some space from the left edge */
@@ -39,6 +61,23 @@
   .top-bar button:hover {
     background-color: #bbb;
   }
+
+  .top-bar-dark button {
+    background-color: #333;
+    color: #ddd;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 10px; /* Add some space between buttons */
+  }
+  
+  .top-bar-dark button:hover {
+    background-color: #555;
+  }
+  
+  
   
   .toggle-container {
     display: flex;

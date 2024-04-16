@@ -90,6 +90,40 @@ html, body {
     border-collapse: collapse;
     text-align: left;
   }
+
+  .files-table button {
+    
+  }
+
+  .fiiles-table button {
+    background-color: #ddd;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 10px; /* Add some space between buttons */
+  }
+  
+  .files-table button:hover {
+    background-color: #bbb;
+  }
+
+  .files-table-dark button {
+    background-color: #333;
+    color: #ddd;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 10px; /* Add some space between buttons */
+  }
+  
+  .files-table-dark button:hover {
+    background-color: #555;
+  }
   
   .files-table th, .files-table td {
     border: 1px solid var(--border-color);

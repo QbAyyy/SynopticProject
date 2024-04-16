@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Ajv from 'ajv';
-import schema from '../Reports/reportSchema.json'; // Import the JSON schema
+import schema from '../Reports/reportSchema.json';
 import '../CSS/reports.css';
-import Report from './Report'; // Import the Report component
+import Report from './Report';
+import MultiViewReport from './MultiViewReport'; // Import the MultiViewReport component
 
 const ajv = new Ajv();
 
@@ -13,6 +14,8 @@ const Reports = ({ darkMode }) => {
     const [selectedFileContent, setSelectedFileContent] = useState(null);
     const [selectedFileName, setSelectedFileName] = useState('');
     const [validFiles, setValidFiles] = useState([]);
+    const [selectedFiles, setSelectedFiles] = useState([]);
+    const [showMultiView, setShowMultiView] = useState(false);
 
     useEffect(() => {
         const validateFiles = async () => {
@@ -48,21 +51,17 @@ const Reports = ({ darkMode }) => {
                 if (fileHandle.kind === 'file' && fileHandle.name.endsWith('.json')) {
                     try {
                         const fileMetadata = await fileHandle.getFile();
-                        const fileContent = await fileMetadata.text(); // Read file content as text
-                        console.log('File Content:', fileContent); // Log the file content
+                        const fileContent = await fileMetadata.text();
                         const parsedData = JSON.parse(fileContent);
-                        console.log('Parsed Data:', parsedData); // Log the parsed data
-            
                         const isValid = ajv.validate(schema, parsedData);
-                        console.log('Validation Result:', isValid); // Log the validation result
-            
+
                         if (isValid) {
                             const lastModified = new Date(fileMetadata.lastModified);
                             const fileObject = {
                                 name: fileHandle.name,
-                                lastModified: lastModified.toLocaleString(), // Convert last modified date to a readable format
-                                version: 1, // You can adjust this based on your application logic
-                                content: fileContent, // Include file content in file object
+                                lastModified: lastModified.toLocaleString(),
+                                version: 1,
+                                content: fileContent,
                             };
                             fileData.push(fileObject);
                         }
@@ -89,6 +88,21 @@ const Reports = ({ darkMode }) => {
         setSelectedFileContent(null);
     };
 
+    const handleFileSelectionToggle = (fileName) => {
+        const isSelected = selectedFiles.includes(fileName);
+        if (isSelected) {
+            setSelectedFiles(selectedFiles.filter((name) => name !== fileName));
+        } else {
+            setSelectedFiles([...selectedFiles, fileName]);
+        }
+    };
+
+    const handleMultiViewButtonClick = () => {
+        if (selectedFiles.length > 0){
+            setShowMultiView(true);
+            }
+    };
+
     return (
         <div className={darkMode ? 'reports-container dark' : 'reports-container light'}>
             <h2>Reports</h2>
@@ -101,9 +115,12 @@ const Reports = ({ darkMode }) => {
             {error && <p className="error-message">Error: {error}</p>}
             {selectedFolder && (
                 <div className="files-list-container">
-                    <table className="files-table">
+                    <table className={darkMode ? "files-table-dark" : "files-table"}>
                         <thead>
                             <tr>
+                                <th>
+                                    <button onClick={handleMultiViewButtonClick}>View Selected</button>
+                                </th>
                                 <th>Report Name</th>
                                 <th>Last Modified</th>
                                 <th>Report Version</th>
@@ -112,6 +129,13 @@ const Reports = ({ darkMode }) => {
                         <tbody>
                             {validFiles.map((file, index) => (
                                 <tr key={index}>
+                                    <td>
+                                        <input
+                                            type="checkbox"
+                                            checked={selectedFiles.includes(file.name)}
+                                            onChange={() => handleFileSelectionToggle(file.name)}
+                                        />
+                                    </td>
                                     <td>
                                         <div className="file-name-container">
                                             {file.name}
@@ -128,6 +152,12 @@ const Reports = ({ darkMode }) => {
             )}
             {selectedFileContent && (
                 <Report fileName={selectedFileName} fileContent={selectedFileContent} onClose={handleCloseModal} />
+            )}
+            {showMultiView && (
+                <MultiViewReport
+                    files={validFiles.filter((file) => selectedFiles.includes(file.name))}
+                    onClose={() => setShowMultiView(false)}
+                />
             )}
         </div>
     );
