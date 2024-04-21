@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import '../CSS/newReport.css'; // Import your CSS file for styling
 import { questions } from '../Reports/reportQuestions'; // Import the questions array
 
-const NewReport = ({ darkMode }) => {
+const NewReport = ({ darkMode, colorBlindMode }) => {
     // State to store form data
     const [formData, setFormData] = useState({});
     const [explanations, setExplanations] = useState({});

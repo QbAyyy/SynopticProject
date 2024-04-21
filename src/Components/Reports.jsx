@@ -7,7 +7,7 @@ import MultiViewReport from './MultiViewReport'; // Import the MultiViewReport c
 
 const ajv = new Ajv();
 
-const Reports = ({ darkMode }) => {
+const Reports = ({ darkMode, colorBlindMode }) => {
     const [selectedFolder, setSelectedFolder] = useState(null);
     const [files, setFiles] = useState([]);
     const [error, setError] = useState(null);

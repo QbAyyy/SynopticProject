@@ -102,4 +102,74 @@
     clip: rect(0, 0, 0, 0);
     border: 0;
   }
+
+  /* Alternative colors for different types of color vision deficiencies */
+
+/* For Protanopia (difficulty distinguishing between blue-green and red-green) */
+.protanopia .score-0 {
+  color: #a833b9; /* Purple variant */
+}
+
+.protanopia .score-1 {
+  color: #ebbd23; /* Yellow-Orange variant */
+}
+
+.protanopia .score-2 {
+  color: #9dc183; /* Green variant with more blue */
+}
+
+.protanopia .score-3 {
+  color: #0b70f4; /* Blue */
+}
+
+/* For Deuteranopia (difficulty distinguishing between red-green) */
+.deuteranopia .score-0 {
+  color: #8830b9; /* Purple variant */
+}
+
+.deuteranopia .score-1 {
+  color: #ebcd23; /* Yellow variant */
+}
+
+.deuteranopia .score-2 {
+  color: #8dc193; /* Green-Blue variant */
+}
+
+.deuteranopia .score-3 {
+  color: #0073f4; /* Blue */
+}
+
+/* For Tritanopia (difficulty distinguishing between blue-yellow) */
+.tritanopia .score-0 {
+  color: #a81015; /* Dark red */
+}
+
+.tritanopia .score-2 {
+  color: #f8a307; /* Orange */
+}
+
+.tritanopia .score-3 {
+  color: #67a241; /* Green with more red */
+}
+
+.tritanopia .score-1 {
+  color: #e67300; /* Dark orange */
+}
+
+/* For Achromatopsia (total color blindness, sees only shades of grey) */
+.achromatopsia .score-0 {
+  color: #555; /* Dark grey */
+}
+
+.achromatopsia .score-1 {
+  color: #777; /* Medium grey */
+}
+
+.achromatopsia .score-2 {
+  color: #999; /* Light grey */
+}
+
+.achromatopsia .score-3 {
+  color: #bbb; /* Lighter grey */
+}
   
