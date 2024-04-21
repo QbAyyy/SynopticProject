@@ -30,7 +30,8 @@ const NewReport = ({ darkMode }) => {
             questions: questions.map((questionObj, index) => ({
                 text: questionObj.question,
                 answer: formData[`answer${index + 1}`] || '', // Use form input to populate the answer field
-                score: formData[`answer${index + 1}`] ? 3 - questionObj.answers.findIndex(answer => answer === formData[`answer${index + 1}`]) : 0 // Calculate the score for each question based on 3 - answerIndex if answer is selected, otherwise set it to 0
+                score: formData[`answer${index + 1}`] ? 3 - questionObj.answers.findIndex(answer => answer === formData[`answer${index + 1}`]) : 0, // Calculate the score for each question based on 3 - answerIndex if answer is selected, otherwise set it to 0
+                principle: questionObj.principle
             }))
         };
 

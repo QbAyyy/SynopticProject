@@ -35,6 +35,7 @@
 export const questions = [
     {
         question: "Does the privacy policy clearly identify the data controller and provide contact details?",
+        principle: "Transparency",
         answers: [
             "Yes, the data controller is clearly identified with full contact details.",
             "Partially, the data controller is identified, but contact details are incomplete.",
@@ -44,6 +45,7 @@ export const questions = [
     },
     {
         question: "Is the purpose of data processing clearly stated and justified within the policy?",
+        principle: "Purpose Limitation",
         answers: [
             "Yes, the purpose is clearly stated, justified, and aligned with GDPR requirements.",
             "Partially, the purpose is stated but not fully justified or clear.",
@@ -53,6 +55,7 @@ export const questions = [
     },
     {
         question: "Are the specific purposes for processing personal data clearly defined and limited?",
+        principle: "Purpose Limitation",
         answers: [
             "Yes, specific purposes are clearly defined and limited as per GDPR.",
             "Partially, purposes are defined but not clearly limited.",
@@ -62,6 +65,7 @@ export const questions = [
     },
     {
         question: "Is there a clear explanation of how collecting personal data serves these purposes?",
+        principle: "Transparency",
         answers: [
             "Yes, there is a clear explanation of how data collection serves the purposes.",
             "Partially, there is an explanation, but it is not very clear.",
@@ -71,6 +75,7 @@ export const questions = [
     },
     {
         question: "Does the policy ensure that only the necessary personal data for the specified purposes are collected and processed?",
+        principle: "Data Minimization",
         answers: [
             "Yes, the policy ensures only necessary data for specified purposes are collected.",
             "Partially, the policy mentions data minimization but lacks detail.",
@@ -80,6 +85,7 @@ export const questions = [
     },
     {
         question: "Are there mechanisms in place to ensure that personal data is kept accurate and up-to-date?",
+        principle: "Accuracy",
         answers: [
             "Yes, there are clear mechanisms to keep data accurate and up-to-date.",
             "Partially, some mechanisms are mentioned but not thoroughly detailed.",
@@ -89,6 +95,7 @@ export const questions = [
     },
     {
         question: "Does the policy specify the retention period for personal data",
+        principle: "Storage Limitation",
         answers: [
             "Yes, the retention period is specified and limited to necessary purposes.",
             "Partially, the retention period is mentioned but not clearly limited.",
@@ -98,6 +105,7 @@ export const questions = [
     },
     {
         question: "What security measures are described to protect personal data against unauthorized or unlawful processing and against accidental loss, destruction, or damage?",
+        principle: "Security",
         answers: [
             "Yes, comprehensive security measures are described.",
             "Partially, some security measures are mentioned but not detailed.",
@@ -107,6 +115,7 @@ export const questions = [
     },
     {
         question: "Does the policy clearly outline the rights of data subjects, including the right to access, correct, delete, or restrict the processing of their personal data?",
+        principle: "Rights of Data Subjects",
         answers: [
             "Yes, the rights are clearly outlined and the process to exercise them is accessible.",
             "Partially, rights are mentioned but the process is not fully clear.",
@@ -116,6 +125,7 @@ export const questions = [
     },
     {
         question: "Does the policy address the use of automated decision-making and profiling, and if so, does it explain the logic involved and its significance and consequences for the data subject?",
+        principle: "Automated Decision-Making and Profiling",
         answers: [
             "Yes, it's clearly addressed with detailed explanations of the logic and significance.",
             "Partially, it's mentioned but lacks detailed explanations.",
@@ -125,6 +135,7 @@ export const questions = [
     },
     {
         question: "If the smart cameras use facial recognition or other biometric profiling, how is this addressed in the policy? Are individuals informed about the use of such technologies?",
+        principle: "Special Categories of Data",
         answers: [
             "Yes, the use is clearly addressed, with detailed policies and individual notifications.",
             "Partially, the use is mentioned but policies or notifications are not detailed.",
@@ -134,6 +145,7 @@ export const questions = [
     },
     {
         question: "How does the policy address the issue of consent for collecting data through smart cameras, particularly in areas where individuals may not have a choice in being observed?",
+        principle: "Consent",
         answers: [
             "Yes, the policy clearly addresses consent with a clear withdrawal process.",
             "Partially, consent is mentioned but the process for withdrawal is not clear.",
@@ -143,6 +155,7 @@ export const questions = [
     },
     {
         question: "Is there a clear procedure for notifying the supervisory authority and affected data subjects in case of a data breach?",
+        principle: "Accountability",
         answers: [
             "Yes, there is a clear procedure for notification of breaches.",
             "Partially, a notification procedure is mentioned but lacks detail.",
@@ -152,6 +165,7 @@ export const questions = [
     },
     {
         question: "If a Data Protection Officer is required, does the policy provide details about the DPO, including contact information?",
+        principle: "Data Protection Officer",
         answers: [
             "Yes, the DPO is clearly detailed with contact information.",
             "Partially, the DPO is mentioned but without full contact details.",

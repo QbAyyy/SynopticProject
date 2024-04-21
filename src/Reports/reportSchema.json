@@ -46,6 +46,10 @@
                             }
                         ]
                     },
+                    "principle":{
+                        "type": "string",
+                        "description": "The principle that the question relates to."
+                    },
                     "possibleAnswers": {
                         "anyOf": [
                             {

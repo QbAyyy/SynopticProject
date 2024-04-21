@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Ajv from 'ajv';
 import schema from '../Reports/reportSchema.json';
 import '../CSS/reports.css';
-import Report from './Report';
+import Report from './reportButNew';
 import MultiViewReport from './MultiViewReport'; // Import the MultiViewReport component
 
 const ajv = new Ajv();
