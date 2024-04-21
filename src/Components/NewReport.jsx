@@ -8,8 +8,14 @@ import { questions } from '../Reports/reportQuestions'; // Import the questions 
 const NewReport = ({ darkMode }) => {
     // State to store form data
     const [formData, setFormData] = useState({});
+    const [explanations, setExplanations] = useState({});
 
     const navigate = useNavigate(); // Use useNavigate hook to navigate
+
+    const handleExplanationChange = (event, questionIndex) => {
+            const { value } = event.target;
+            setExplanations({ ...explanations, [questionIndex]: value });
+        };
 
     // Function to handle form submission
     const handleSubmit = (event) => {
@@ -20,6 +26,8 @@ const NewReport = ({ darkMode }) => {
             return;
         }
 
+    
+
         // Generate JSON object from form data
         const reportData = {
             name: formData.name,
@@ -27,12 +35,16 @@ const NewReport = ({ darkMode }) => {
             timeCreated: new Date().toTimeString().split(' ')[0], // Current time in HH:MM:SS format
             version: 1, // You can adjust this based on your application logic
             author: formData.author,
-            questions: questions.map((questionObj, index) => ({
-                text: questionObj.question,
-                answer: formData[`answer${index + 1}`] || '', // Use form input to populate the answer field
-                score: formData[`answer${index + 1}`] ? 3 - questionObj.answers.findIndex(answer => answer === formData[`answer${index + 1}`]) : 0, // Calculate the score for each question based on 3 - answerIndex if answer is selected, otherwise set it to 0
-                principle: questionObj.principle
-            }))
+            questions: questions.map((questionObj, index) => {
+                const answerIndex = questionObj.answers.findIndex(answer => answer === formData[`answer${index + 1}`]);
+                return {
+                    text: questionObj.question,
+                    answer: formData[`answer${index + 1}`] || '',
+                    explanation: answerIndex !== 0 ? explanations[index] || '' : '', // Add explanation if answer is not top score
+                    score: formData[`answer${index + 1}`] ? 3 - questionObj.answers.findIndex(answer => answer === formData[`answer${index + 1}`]) : 0, // Calculate the score for each question based on 3 - answerIndex if answer is selected, otherwise set it to 0
+                    principle: questionObj.principle
+                };
+            }),
         };
 
         // Convert JSON object to a Blob
@@ -55,7 +67,14 @@ const NewReport = ({ darkMode }) => {
     // Function to handle form input changes for dropdowns
     const handleDropdownChange = (event, questionIndex) => {
         const { value } = event.target;
+        const answerIndex = questions[questionIndex].answers.findIndex(answer => answer === value);
+
         setFormData({ ...formData, [`answer${questionIndex + 1}`]: value });
+
+        // Automatically remove the explanation if the top score is selected
+        if (answerIndex === 0) {
+            setExplanations({ ...explanations, [questionIndex]: '' });
+        }
     };
 
     return (
@@ -80,6 +99,18 @@ const NewReport = ({ darkMode }) => {
                                 </option>
                             ))}
                         </select>
+                        {
+                            // Show additional information input if the answer is not the top score
+                            formData[`answer${index + 1}`] && questions[index].answers.findIndex(answer => answer === formData[`answer${index + 1}`]) !== 0 &&
+                            <textarea
+                                id={`explanation${index + 1}`}
+                                name={`explanation${index + 1}`}
+                                placeholder="Please provide additional information..."
+                                value={explanations[index] || ''}
+                                onChange={(event) => handleExplanationChange(event, index)}
+                                className={`explanation-input ${darkMode ? 'dark-mode' : ''}`}
+                            ></textarea>
+                        }
                     </div>
                 ))}
                 <div className="form-group">
