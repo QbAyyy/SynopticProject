@@ -60,6 +60,8 @@
     font-weight: bold;
     margin-left: 10px;
     color: #fff;
+    border-radius: 25px;
+    
   }
   
   .score-0 { background-color: #FF4136; }
@@ -82,5 +84,16 @@
     text-align: center;
     font-weight: bold;
     margin-top: 20px;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
   }
   

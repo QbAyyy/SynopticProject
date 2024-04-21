@@ -5,6 +5,7 @@ const Report = ({ fileName, fileContent, onClose }) => {
     const [reportData, setReportData] = useState(null);
     const [overallScore, setOverallScore] = useState(0);
     const [maxPossibleScore, setMaxPossibleScore] = useState(0);
+    const [overallRating, setOverallRating] = useState('');
 
     useEffect(() => {
         if (fileContent) {
@@ -25,6 +26,14 @@ const Report = ({ fileName, fileContent, onClose }) => {
             const maxScore = reportData.questions.filter(question => question.answer).length * 3;
             setOverallScore(totalScore);
             setMaxPossibleScore(maxScore);
+
+            // Now calculate the overall rating
+            const questionsAnswered = reportData.questions.filter(q => q.answer).length;
+            if (questionsAnswered > 0) {
+                const averageScore = overallScore / questionsAnswered;
+                const roundedScore = Math.round(averageScore);
+                setOverallRating(renderScore(roundedScore));
+            }
         }
     }, [reportData]);
 
@@ -78,11 +87,23 @@ const Report = ({ fileName, fileContent, onClose }) => {
                                     {renderScore(question.score)}
                                 </span>
                                 <p className="principle">{question.principle}</p>
-                                <p className="answer"><strong>Answer:</strong> {question.answer}</p>
+                                {question.answer && (
+                                    <>
+                                        <p className="answer"><strong>Answer:</strong> {question.answer}</p>
+                                        {question.explanation && (
+                                            <p className="explanation">{question.explanation}</p>
+                                        )}
+                                    </>
+                                )}
                             </div>
                         ))}
                         <div className="report-footer">
                             <p>Total Score: {overallScore} / {maxPossibleScore}</p>
+                            <p>
+                                Overall Score:
+                                <p className={`score score-${(Math.round((overallScore / maxPossibleScore) * 3))}`}> {renderScore(Math.round((overallScore / maxPossibleScore) * 3))}</p>
+                            </p>
+                            
                         </div>
                     </div>
                 )}
