@@ -3,11 +3,11 @@ import Ajv from 'ajv';
 import schema from '../Reports/reportSchema.json';
 import '../CSS/reports.css';
 import Report from './reportButNew';
-import MultiViewReport from './MultiViewReport'; // Import the MultiViewReport component
+import MultiViewReport from './MultiViewReport';
 
 const ajv = new Ajv();
 
-const Reports = ({ darkMode, colorBlindMode }) => {
+const Reports = ({ colorBlindMode }) => {
     const [selectedFolder, setSelectedFolder] = useState(null);
     const [files, setFiles] = useState([]);
     const [error, setError] = useState(null);
@@ -100,22 +100,23 @@ const Reports = ({ darkMode, colorBlindMode }) => {
     const handleMultiViewButtonClick = () => {
         if (selectedFiles.length > 0){
             setShowMultiView(true);
-            }
+        }
     };
 
     return (
-        <div className={darkMode ? 'reports-container dark' : 'reports-container light'}>
+        <div className={`reports-container ${colorBlindMode}`} aria-live="polite">
             <h2>Reports</h2>
             <div className="header">
                 <div className="current-folder">
-                    <span>Current Folder: {selectedFolder ? selectedFolder.name : ''}</span>
+                    <span>Current Folder: {selectedFolder ? selectedFolder.name : 'Not selected'}</span>
                 </div>
                 <button className="open-folder-btn" onClick={handleFolderSelection}>Open Folder</button>
             </div>
-            {error && <p className="error-message">Error: {error}</p>}
+            {error && <div className="error-message" role="alert">Error: {error}</div>}
             {selectedFolder && (
                 <div className="files-list-container">
-                    <table className={darkMode ? "files-table-dark" : "files-table"}>
+                    <table className="files-table" aria-describedby="fileTableDescription">
+                        <caption hidden id="fileTableDescription">List of files from the selected folder</caption>
                         <thead>
                             <tr>
                                 <th>
@@ -128,12 +129,13 @@ const Reports = ({ darkMode, colorBlindMode }) => {
                         </thead>
                         <tbody>
                             {validFiles.map((file, index) => (
-                                <tr key={index}>
+                                <tr key={index} aria-selected={selectedFiles.includes(file.name)}>
                                     <td>
                                         <input
                                             type="checkbox"
                                             checked={selectedFiles.includes(file.name)}
                                             onChange={() => handleFileSelectionToggle(file.name)}
+                                            aria-label={`Select ${file.name}`}
                                         />
                                     </td>
                                     <td>

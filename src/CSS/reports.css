@@ -1,162 +1,170 @@
+/* Base and Dark Mode Styles */
 html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-  }
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
 
 :root {
-    /* Light mode colors */
-    --background-color: white;
-    --header-bg-color: white;
-    --text-color: #333;
-    --accent-color: #007bff; /* Light blue */
-    --button-hover-color: #0056b3;
-    --border-color: #dcdcdc;
-    --error-color: red;
-    --folder-bg-color: #f2f2f2;
-    --table-header-bg-color: #e3f2fd;
-    --box-shadow-color: rgba(0,0,0,0.1);
-  }
-  
-  .dark-mode {
-    /* Dark mode colors */
-    --background-color: #333;
-    --header-bg-color: #1a1a1a;
-    --text-color: #ffffff;
-    --accent-color: #ff5722; /* Coral color for the button */
-    --button-hover-color: #e64a19;
-    --border-color: #333333;
-    --error-color: #ff0033;
-    --folder-bg-color: #262626;
-    --table-header-bg-color: #333333;
-    --box-shadow-color: rgba(255,255,255,0.1);
-  }
-  
-  .reports-container {
-    width: 100%;
-    height: 100vh;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    font-family: Arial, sans-serif;
-    background-color: var(--background-color);
-  }
-  
+  --background-color: white;
+  --header-bg-color: white;
+  --text-color: #333;
+  --accent-color: #007bff; /* Light blue */
+  --button-hover-color: #0056b3;
+  --border-color: #dcdcdc;
+  --error-color: red;
+  --folder-bg-color: #f2f2f2;
+  --table-header-bg-color: #e3f2fd;
+  --box-shadow-color: rgba(0,0,0,0.1);
+}
+
+.dark-mode {
+  --background-color: #333;
+  --header-bg-color: #1a1a1a;
+  --text-color: #ffffff;
+  --accent-color: #ff5722; /* Coral color for the button */
+  --button-hover-color: #e64a19;
+  --border-color: #333333;
+  --error-color: #ff0033;
+  --folder-bg-color: #262626;
+  --table-header-bg-color: #333333;
+  --box-shadow-color: rgba(255,255,255,0.1);
+}
+
+/* General Styles */
+.reports-container {
+  width: 100%;
+  height: 100vh;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--header-bg-color);
+  box-shadow: 0 2px 4px var(--box-shadow-color);
+}
+
+.current-folder {
+  background-color: var(--folder-bg-color);
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.open-folder-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: var(--accent-color);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.open-folder-btn:hover {
+  background-color: var(--button-hover-color);
+}
+
+.error-message {
+  color: var(--error-color);
+  padding: 1rem;
+}
+
+.files-list-container {
+  flex-grow: 1;
+  overflow: auto;
+  padding: 25px 25px 0 25px;
+}
+
+.files-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  color: var(--text-color);
+}
+
+.files-table th, .files-table td {
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  background-color: var(--table-header-bg-color);
+}
+
+.files-table th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
   .header {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-    background-color: var(--header-bg-color);
-    box-shadow: 0 2px 4px var(--box-shadow-color);
-  }
-  
-  .current-folder {
-    background-color: var(--folder-bg-color);
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--border-color);
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    margin-right: 1rem;
-    color: var(--text-color);
-  }
-  
-  .open-folder-btn {
-    padding: 0.5rem 1rem;
-    border: none;
-    background-color: var(--accent-color);
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .open-folder-btn:hover {
-    background-color: var(--button-hover-color);
-  }
-  
-  .error-message {
-    color: var(--error-color);
-    padding: 1rem;
-  }
-  
-  .files-list-container {
-    flex-grow: 1;
-    overflow: auto;
-  }
-  
-  .files-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-  }
-
-  .files-table button {
-    
-  }
-
-  .fiiles-table button {
-    background-color: #ddd;
-    color: #333;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin: 0 10px; /* Add some space between buttons */
-  }
-  
-  .files-table button:hover {
-    background-color: #bbb;
-  }
-
-  .files-table-dark button {
-    background-color: #333;
-    color: #ddd;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin: 0 10px; /* Add some space between buttons */
-  }
-  
-  .files-table-dark button:hover {
-    background-color: #555;
-  }
-  
-  .files-table th, .files-table td {
-    border: 1px solid var(--border-color);
-    color: var(--text-color);
-    padding: 0.5rem 1rem;
-  }
-  
-  .files-table th {
-    background-color: var(--table-header-bg-color);
-    color: var(--text-color);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-  
-  @media (max-width: 768px) {
-    .header {
       flex-direction: column;
       align-items: flex-start;
-    }
-  
-    .current-folder,
-    .open-folder-btn {
+  }
+
+  .current-folder, .open-folder-btn {
       width: 100%;
       margin-top: 0.5rem;
-    }
-  
-    .open-folder-btn {
-      margin-bottom: 0.5rem;
-    }
-  
-    .files-table th, .files-table td {
-      padding: 0.5rem;
-    }
   }
-  
+
+  .open-folder-btn {
+      margin-bottom: 0.5rem;
+  }
+
+  .files-table th, .files-table td {
+      padding: 0.5rem;
+  }
+}
+
+/* Color Blind Mode Adjustments */
+.reports-container.protanopia, .reports-container.deuteranopia {
+  --accent-color: #009E47; /* Green suitable for red-green color blindness */
+  --button-hover-color: #007337;
+  --error-color: #E71D36;
+  --folder-bg-color: #B2BEB5;
+  --table-header-bg-color: #8D98A7;
+}
+
+.reports-container.tritanopia {
+  --accent-color: #DAA520; /* Gold suitable for blue-yellow color blindness */
+  --button-hover-color: #B8860B;
+  --error-color: #E71D36;
+  --folder-bg-color: #B2BEB5;
+  --table-header-bg-color: #8D98A7;
+}
+
+.reports-container.achromatopsia {
+  --background-color: #CCCCCC; /* Gray scale for complete color blindness */
+  --header-bg-color: #BBBBBB;
+  --text-color: #333333;
+  --accent-color: #777777;
+  --button-hover-color: #555555;
+  --border-color: #999999;
+  --error-color: #FF0000; /* Bright red for higher visibility */
+  --folder-bg-color: #AAAAAA;
+  --table-header-bg-color: #888888;
+}
+
+.open-folder-btn, .files-table button, .reports-container button {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.open-folder-btn:hover, .files-table button:hover, .reports-container button:hover {
+  background-color: var(--button-hover-color);
+}

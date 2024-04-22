@@ -26,7 +26,7 @@
         },
         "questions": {
             "type": "array",
-            "description": "The list of questions included in the report.",
+            "description": "The list of questions in the report.",
             "items": {
                 "type": "object",
                 "properties": {
@@ -48,26 +48,22 @@
                     },
                     "principle":{
                         "type": "string",
-                        "description": "The principle that the question relates to."
+                        "description": "The GDPR principle that the question relates to."
                     },
-                    "possibleAnswers": {
+                    "explanation":{
                         "anyOf": [
                             {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                },
-                                "description": "The list of possible answers to the question."
+                                "type": "string",
+                                "description": "The explanation included with the answer"
                             },
                             {
-                                "type": "string",
-                                "enum": ["openEnded"],
-                                "description": "Indicates an open-ended question with no predefined answers."
+                                "type": "null",
+                                "description": "No explanation provided."
                             }
                         ]
                     }
                 },
-                "required": ["text", "answer"]
+                "required": ["text", "answer", "principle"]
             }
         }
     },
