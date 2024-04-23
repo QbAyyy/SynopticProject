@@ -1,10 +1,10 @@
 {
-  "name": "Compliance Report for Anker's Eufy Cameras",
-  "dateCreated": "2024-04-23",
-  "timeCreated": "14:23:32",
+  "name": "Compliance Report for Amazon's Ring Cameras",
+  "dateCreated": "2024-04-23", 
+  "timeCreated": "14:53:21",
   "version": 1,
   "author": "Jakub",
-  "questions": [
+    "questions": [
         {
             "text": "Does the privacy policy clearly identify the data controller and provide contact details?",
             "answer": "Yes, the data controller is clearly identified with full contact details.",
@@ -70,24 +70,24 @@
         },
         {
             "text": "Does the policy address the use of automated decision-making and profiling, and if so, does it explain the logic involved and its significance and consequences for the data subject?",
-            "answer": "Partially, it's mentioned but lacks detailed explanations.",
+            "answer": "Yes, it's clearly addressed with detailed explanations of the logic and significance.",
             "principle": "Automated Decision-Making and Profiling",
-            "score": 2,
-            "explanation": "The policy refers to automated decision-making and profiling, but it lacks detailed explanations about the logic and implications for data subjects."
+            "score": 3,
+            "explanation": ""
         },
         {
             "text": "If the smart cameras use facial recognition or other biometric profiling, how is this addressed in the policy? Are individuals informed about the use of such technologies?",
             "answer": "Partially, the use is mentioned but policies or notifications are not detailed.",
             "principle": "Special Categories of Data",
             "score": 2,
-            "explanation": "While facial recognition and biometric profiling are mentioned, detailed policies and individual notifications are not adequately described."
+            "explanation": "The policy mentions the use of biometric technologies like facial recognition but lacks detailed policies and notifications about its use."
         },
         {
             "text": "How does the policy address the issue of consent for collecting data through smart cameras, particularly in areas where individuals may not have a choice in being observed?",
             "answer": "Partially, consent is mentioned but the process for withdrawal is not clear.",
             "principle": "Consent",
             "score": 2,
-            "explanation": "The policy mentions consent for collecting data through smart cameras but does not clearly explain how individuals can withdraw consent."
+            "explanation": "The policy indicates that consent is required for the use of smart cameras and data collection but does not clearly detail how individuals can withdraw consent."
         },
         {
             "text": "Is there a clear procedure for notifying the supervisory authority and affected data subjects in case of a data breach?",
@@ -98,11 +98,10 @@
         },
         {
             "text": "If a Data Protection Officer is required, does the policy provide details about the DPO, including contact information?",
-            "answer": "Partially, the DPO is mentioned but without full contact information.",
+            "answer": "Partially, the DPO is mentioned but without full contact details.",
             "principle": "Data Protection Officer",
             "score": 2,
-            "explanation": "Although the DPO is mentioned, the policy does not offer complete contact information."
+            "explanation": "The policy mentions a Data Protection Officer but fails to provide complete contact details necessary for reaching them."
         }
     ]
-
 }

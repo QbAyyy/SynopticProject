@@ -1,13 +1,33 @@
-import React from 'react';
-import '../CSS/multiViewReport.css'; // Adjust the path if needed
+import React, { useEffect, useState } from 'react';
+import '../CSS/multiViewReport.css';
 
-const MultiViewReport = ({ files, onClose }) => {
+const MultiViewReport = ({ files, onClose, colorBlindMode }) => {
+    const [focusedIndex, setFocusedIndex] = useState(-1);
+
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.key === 'Escape') {
+                onClose(focusedIndex);
+            } else if (event.key === 'ArrowDown') {
+                setFocusedIndex(prevIndex => Math.min(prevIndex + 1, files.length - 1));
+            } else if (event.key === 'ArrowUp') {
+                setFocusedIndex(prevIndex => Math.max(prevIndex - 1, -1));
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [files, focusedIndex, onClose]);
+
     const renderScore = (score) => {
         switch (score) {
             case 3:
                 return '++';
             case 2:
-                return '++';
+                return '+';
             case 1:
                 return '-';
             case 0:
@@ -17,13 +37,30 @@ const MultiViewReport = ({ files, onClose }) => {
         }
     };
 
+    const calculateScores = (reportData) => {
+        const totalScore = reportData.questions.reduce((acc, question) => question.answer ? acc + question.score : acc, 0);
+        const maxScore = reportData.questions.filter(question => question.answer).length * 3;
+        const overallScore = Math.round((totalScore / maxScore) * 3); // Scale the score to the same range as renderScore expects
+        return { totalScore, maxScore, overallScore };
+    };
+
     return (
-        <div className="multi-view-report-overlay">
+        <div className={`multi-view-report-overlay ${colorBlindMode}`}>
             {files.map((file, index) => {
                 const { name, content } = file;
                 const reportData = JSON.parse(content);
+                const { totalScore, maxScore, overallScore } = calculateScores(reportData);
+
                 return (
-                    <div key={index} className="multi-view-report" role="dialog" aria-labelledby={`reportTitle${index}`} aria-modal="true">
+                    <div
+                        key={index}
+                        className={`multi-view-report ${focusedIndex === index ? 'focused' : ''}`}
+                        role="dialog"
+                        aria-labelledby={`reportTitle${index}`}
+                        aria-modal="true"
+                        tabIndex={0} // Make each report focusable
+                        onClick={() => setFocusedIndex(index)} // Allow clicking to focus
+                    >
                         <button className="close-btn" onClick={() => onClose(index)} aria-label={`Close report ${name}`}>Close</button>
                         <h2 id={`reportTitle${index}`}>{name}</h2>
                         <div className="report-metadata">
@@ -45,6 +82,15 @@ const MultiViewReport = ({ files, onClose }) => {
                                     )}
                                 </div>
                             ))}
+                            <div className="report-footer">
+                                <p>Total Score: {totalScore} / {maxScore}</p>
+                                <p>
+                                    Overall Score:
+                                    <span className={`score score-${overallScore}`}>
+                                        {renderScore(overallScore)}
+                                    </span>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 );

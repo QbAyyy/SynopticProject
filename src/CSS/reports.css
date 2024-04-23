@@ -10,7 +10,7 @@ html, body {
   --background-color: white;
   --header-bg-color: white;
   --text-color: #333;
-  --accent-color: #007bff; /* Light blue */
+  --accent-color: #007bff;
   --button-hover-color: #0056b3;
   --border-color: #dcdcdc;
   --error-color: red;
@@ -126,31 +126,30 @@ html, body {
   }
 }
 
-/* Color Blind Mode Adjustments */
 .reports-container.protanopia, .reports-container.deuteranopia {
-  --accent-color: #009E47; /* Green suitable for red-green color blindness */
-  --button-hover-color: #007337;
-  --error-color: #E71D36;
-  --folder-bg-color: #B2BEB5;
-  --table-header-bg-color: #8D98A7;
+  --accent-color: #6a0dad; 
+  --button-hover-color: #8a2be2;
+  --error-color: #E71D36; 
+  --folder-bg-color: #dedede; 
+  --table-header-bg-color: #bbbbbb; 
 }
 
 .reports-container.tritanopia {
-  --accent-color: #DAA520; /* Gold suitable for blue-yellow color blindness */
-  --button-hover-color: #B8860B;
-  --error-color: #E71D36;
-  --folder-bg-color: #B2BEB5;
-  --table-header-bg-color: #8D98A7;
+  --accent-color: #ff6347; 
+  --button-hover-color: #ff4500; 
+  --error-color: #E71D36; 
+  --folder-bg-color: #dedede; 
+  --table-header-bg-color: #bbbbbb; 
 }
 
 .reports-container.achromatopsia {
-  --background-color: #CCCCCC; /* Gray scale for complete color blindness */
+  --background-color: #CCCCCC; 
   --header-bg-color: #BBBBBB;
   --text-color: #333333;
   --accent-color: #777777;
   --button-hover-color: #555555;
   --border-color: #999999;
-  --error-color: #FF0000; /* Bright red for higher visibility */
+  --error-color: #FF0000; 
   --folder-bg-color: #AAAAAA;
   --table-header-bg-color: #888888;
 }

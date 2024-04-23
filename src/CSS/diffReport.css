@@ -1,175 +1,172 @@
+/* Base and Dark Mode Styles */
 .modal-overlay {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 20px;
-    max-height: 90%;
-    overflow: auto;
-    min-width: 90%;
-  }
-  
-  .modal {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    margin: 10px;
-    overflow-y: auto;
-    min-width: 30%;
-    position: relative;
-  }
-  
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #ff4545;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 0.9rem;
-  }
-  
-  .report-header h2 {
-    text-align: center;
-  }
-  
-  .report-metadata p {
-    text-align: center;
-    color: #666;
-    font-size: 0.9rem;
-  }
-  
-  .report-content {
-    margin-top: 20px;
-  }
-  
-  .report-section {
-    border-bottom: 1px solid #eee;
-    padding: 10px 0;
-  }
-  
-  .question-text {
-    font-size: 1.1rem;
-    font-weight: bold;
-  }
-  
-  .score {
-    font-weight: bold;
-    margin-left: 10px;
-    color: #fff;
-    border-radius: 25px;
-    
-  }
-  
-  .score-0 { background-color: #FF4136; }
-  .score-1 { background-color: #FF851B; }
-  .score-2 { background-color: #2ECC40; }
-  .score-3 { background-color: #0074D9; }
-  
-  .principle, .answer {
-    margin-top: 5px;
-  }
-  
-  .explanation {
-    background-color: #f2f4f5;
-    border-left: 4px solid #0074D9;
-    padding: 10px;
-    margin-top: 5px;
-  }
-  
-  .report-footer {
-    text-align: center;
-    font-weight: bold;
-    margin-top: 20px;
-  }
-
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-  }
-
-  /* Alternative colors for different types of color vision deficiencies */
-
-/* For Protanopia (difficulty distinguishing between blue-green and red-green) */
-.protanopia .score-0 {
-  color: #a833b9; /* Purple variant */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px;
+  max-height: 90%;
+  overflow: auto;
+  min-width: 90%;
 }
 
-.protanopia .score-1 {
-  color: #ebbd23; /* Yellow-Orange variant */
+.modal {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  margin: 10px;
+  overflow-y: auto;
+  min-width: 30%;
+  position: relative;
 }
 
-.protanopia .score-2 {
-  color: #9dc183; /* Green variant with more blue */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff4545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
 }
 
-.protanopia .score-3 {
-  color: #0b70f4; /* Blue */
+.report-header h2 {
+  text-align: center;
 }
 
-/* For Deuteranopia (difficulty distinguishing between red-green) */
-.deuteranopia .score-0 {
-  color: #8830b9; /* Purple variant */
+.report-metadata p {
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
 }
 
-.deuteranopia .score-1 {
-  color: #ebcd23; /* Yellow variant */
+.report-content {
+  margin-top: 20px;
 }
 
-.deuteranopia .score-2 {
-  color: #8dc193; /* Green-Blue variant */
+.report-section {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
 }
 
-.deuteranopia .score-3 {
-  color: #0073f4; /* Blue */
+.question-text {
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 
-/* For Tritanopia (difficulty distinguishing between blue-yellow) */
-.tritanopia .score-0 {
-  color: #a81015; /* Dark red */
+.principle, .answer {
+  margin-top: 5px;
 }
 
-.tritanopia .score-2 {
-  color: #f8a307; /* Orange */
+.explanation {
+  background-color: #f2f4f5;
+  border-left: 4px solid #0074D9;
+  padding: 10px;
+  margin-top: 5px;
 }
 
-.tritanopia .score-3 {
-  color: #67a241; /* Green with more red */
+.report-footer .score {
+  display: inline-block;
+  margin-left: 5px; 
 }
 
-.tritanopia .score-1 {
-  color: #e67300; /* Dark orange */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
-/* For Achromatopsia (total color blindness, sees only shades of grey) */
-.achromatopsia .score-0 {
-  color: #555; /* Dark grey */
+.score {
+  font-weight: bold;
+  margin-left: 10px;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.achromatopsia .score-1 {
-  color: #777; /* Medium grey */
+.score-0 { background-color: #a833b9; }
+.score-1 { background-color: #ebbd23; }
+.score-2 { background-color: #9dc183; }
+.score-3 { background-color: #0b70f4; }
+
+.deuteranopia .score-0 { background-color: #8830b9; }
+.deuteranopia .score-1 { background-color: #ebcd23; }
+.deuteranopia .score-2 { background-color: #8dc193; }
+.deuteranopia .score-3 { background-color: #0073f4; }
+
+.tritanopia .score-0 { background-color: #a81015; }
+.tritanopia .score-2 { background-color: #f8a307; }
+.tritanopia .score-3 { background-color: #67a241; }
+.tritanopia .score-1 { background-color: #e67300; }
+
+.achromatopsia .score-0 { background-color: #555; }
+.achromatopsia .score-1 { background-color: #777; }
+.achromatopsia .score-2 { background-color: #999; }
+.achromatopsia .score-3 { background-color: #bbb; }
+
+/* Added background fade for modal-overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.achromatopsia .score-2 {
-  color: #999; /* Light grey */
+.modal {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  max-width: 90%;
+  overflow-y: auto;
 }
 
-.achromatopsia .score-3 {
-  color: #bbb; /* Lighter grey */
+/* Scrollbar Styles */
+.modal::-webkit-scrollbar {
+  width: 8px;
 }
-  
+
+.modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.modal-overlay::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-overlay::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-overlay::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}

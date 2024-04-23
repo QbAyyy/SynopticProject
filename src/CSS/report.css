@@ -1,85 +1,131 @@
-/* report.css */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure the modal is on top of other content */
+  overflow: auto;
+  padding-top: 25px;
+}
 
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    z-index: 9999; /* Ensure the modal is on top of other elements */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal {
-    position: relative; /* Ensure the close button is positioned relative to the modal */
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Add a shadow effect */
-    max-width: 80%; /* Adjust modal width as needed */
-  }
-  
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer; /* Add cursor pointer for better UX */
-    background-color: transparent;
-    border: none;
-    font-size: 20px;
-    color: #333; /* Adjust the color as needed */
-  }
-  
-  .close-btn:hover {
-    color: #000; /* Change color on hover */
-  }
-  
-  .file-name-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .file-name-container button {
-    margin-left: 10px; /* Adjust margin as needed */
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure the modal is on top of other content */
+  overflow: auto;
+  padding-top: 25px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+}
 
-  .question-item {
-    margin-bottom: 10px;
-  }
-  
-  .question-text {
-    font-weight: bold;
-  }
-  
-  .score {
-    font-weight: bold;
-  }
-  
-  .score-0 {
-    color: red;
-    font-weight: bold;
-    font-size: 30px;
-  }
-  
-  .score-1 {
-    color: #f8cc07;
-    font-weight: bold;
-    font-size: 30px;
-  }
-  
-  .score-2 {
-    color: rgb(175, 241, 67);
-    font-weight: bold;
-    font-size: 30px;
-  }
-  
-  .score-3 {
-    color: green;
-    font-weight: bold;
-    font-size: 30px;
-  }
-  
+.modal {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  width: 70%; /* Adjust the width as needed */
+  max-width: 90%; /* Limit the maximum width */
+  max-height: calc(100% - 40px); /* Ensure the modal fits within the viewport */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.report-metadata {
+  margin-bottom: 20px;
+}
+
+.report-metadata p {
+  margin: 5px 0;
+}
+
+.report-metadata strong {
+  font-weight: bold;
+}
+
+.report-metadata span {
+  margin-left: 5px;
+}
+
+.report-content {
+  margin-bottom: 20px;
+}
+
+.report-section {
+  margin-bottom: 20px;
+}
+
+.question-text {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.score {
+  display: inline-block;
+  margin-right: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.principle {
+  margin-bottom: 5px;
+}
+
+.answer {
+  margin-bottom: 5px;
+}
+
+.explanation {
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.report-footer {
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+.report-footer p {
+  margin: 5px 0;
+}
+
+.score-0 { background-color: #e30e0e; }
+.score-1 { background-color: #ebbd23; }
+.score-2 { background-color: #9dc183; }
+.score-3 { background-color: #0b70f4; }
+
+.deuteranopia .score-0 { background-color: #8830b9; }
+.deuteranopia .score-1 { background-color: #ebcd23; }
+.deuteranopia .score-2 { background-color: #8dc193; }
+.deuteranopia .score-3 { background-color: #0073f4; }
+
+.tritanopia .score-0 { background-color: #a81015; }
+.tritanopia .score-2 { background-color: #f8a307; }
+.tritanopia .score-3 { background-color: #67a241; }
+.tritanopia .score-1 { background-color: #e67300; }
+
+.achromatopsia .score-0 { background-color: #555; }
+.achromatopsia .score-1 { background-color: #777; }
+.achromatopsia .score-2 { background-color: #999; }
+.achromatopsia .score-3 { background-color: #bbb; }

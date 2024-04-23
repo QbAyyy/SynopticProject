@@ -1,9 +1,9 @@
 {
-  "name": "Proper Good Report",
-  "dateCreated": "2024-04-21",
-  "timeCreated": "19:27:33",
+  "name": "TestREport",
+  "dateCreated": "2024-04-23",
+  "timeCreated": "16:09:01",
   "version": 1,
-  "author": "The man on the moon",
+  "author": "me",
   "questions": [
     {
       "text": "Does the privacy policy clearly identify the data controller and provide contact details?",
@@ -15,92 +15,92 @@
     {
       "text": "Is the purpose of data processing clearly stated and justified within the policy?",
       "answer": "Partially, the purpose is stated but not fully justified or clear.",
-      "explanation": "Beans Meanz heinz ",
+      "explanation": "",
       "score": 2,
       "principle": "Purpose Limitation"
     },
     {
       "text": "Are the specific purposes for processing personal data clearly defined and limited?",
-      "answer": "No, purposes are not defined or limited.",
-      "explanation": "Beaner",
-      "score": 0,
+      "answer": "Vaguely, purposes are mentioned but not well-defined or limited.",
+      "explanation": "",
+      "score": 1,
       "principle": "Purpose Limitation"
     },
     {
       "text": "Is there a clear explanation of how collecting personal data serves these purposes?",
-      "answer": "Vaguely, the explanation of data collection is incomplete or unclear.",
-      "explanation": "Cheezit",
-      "score": 1,
+      "answer": "No, there is no explanation of how data collection serves the purposes.",
+      "explanation": "",
+      "score": 0,
       "principle": "Transparency"
     },
     {
       "text": "Does the policy ensure that only the necessary personal data for the specified purposes are collected and processed?",
-      "answer": "No, there is no mention of data minimization.",
+      "answer": "",
       "explanation": "",
       "score": 0,
       "principle": "Data Minimization"
     },
     {
       "text": "Are there mechanisms in place to ensure that personal data is kept accurate and up-to-date?",
-      "answer": "No, there are no mechanisms mentioned for ensuring data accuracy.",
+      "answer": "",
       "explanation": "",
       "score": 0,
       "principle": "Accuracy"
     },
     {
       "text": "Does the policy specify the retention period for personal data",
-      "answer": "No, the retention period is not specified or limited.",
+      "answer": "",
       "explanation": "",
       "score": 0,
       "principle": "Storage Limitation"
     },
     {
       "text": "What security measures are described to protect personal data against unauthorized or unlawful processing and against accidental loss, destruction, or damage?",
-      "answer": "No, there is no mention of security measures.",
+      "answer": "",
       "explanation": "",
       "score": 0,
       "principle": "Security"
     },
     {
       "text": "Does the policy clearly outline the rights of data subjects, including the right to access, correct, delete, or restrict the processing of their personal data?",
-      "answer": "No, the rights are not clearly outlined or the process is not mentioned.",
+      "answer": "",
       "explanation": "",
       "score": 0,
       "principle": "Rights of Data Subjects"
     },
     {
       "text": "Does the policy address the use of automated decision-making and profiling, and if so, does it explain the logic involved and its significance and consequences for the data subject?",
-      "answer": "No, there is no mention of automated decision-making or profiling.",
+      "answer": "",
       "explanation": "",
       "score": 0,
       "principle": "Automated Decision-Making and Profiling"
     },
     {
       "text": "If the smart cameras use facial recognition or other biometric profiling, how is this addressed in the policy? Are individuals informed about the use of such technologies?",
-      "answer": "No, there is no mention or clear policy on the use of such technologies.",
+      "answer": "",
       "explanation": "",
       "score": 0,
       "principle": "Special Categories of Data"
     },
     {
       "text": "How does the policy address the issue of consent for collecting data through smart cameras, particularly in areas where individuals may not have a choice in being observed?",
-      "answer": "No, there is no mention of consent or the process for obtaining/withdrawing it.",
+      "answer": "",
       "explanation": "",
       "score": 0,
       "principle": "Consent"
     },
     {
       "text": "Is there a clear procedure for notifying the supervisory authority and affected data subjects in case of a data breach?",
-      "answer": "Yes, there is a clear procedure for notification of breaches.",
+      "answer": "",
       "explanation": "",
-      "score": 3,
+      "score": 0,
       "principle": "Accountability"
     },
     {
       "text": "If a Data Protection Officer is required, does the policy provide details about the DPO, including contact information?",
-      "answer": "Yes, the DPO is clearly detailed with contact information.",
+      "answer": "",
       "explanation": "",
-      "score": 3,
+      "score": 0,
       "principle": "Data Protection Officer"
     }
   ]

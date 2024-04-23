@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import '../CSS/report.css';
 
-const Report = ({ fileName, fileContent, onClose }) => {
+const Report = ({ fileName, fileContent, onClose, colorBlindMode }) => {
     const [reportData, setReportData] = useState(null);
     const [overallScore, setOverallScore] = useState(0);
-    const [maxPossibleScore, setMaxPossibleScore] = useState(0); // Added state for max possible score
+    const [maxPossibleScore, setMaxPossibleScore] = useState(0);
+    const [overallRating, setOverallRating] = useState('');
+    const [focusedIndex, setFocusedIndex] = useState(-1);
 
     useEffect(() => {
         if (fileContent) {
@@ -19,25 +21,42 @@ const Report = ({ fileName, fileContent, onClose }) => {
 
     useEffect(() => {
         if (reportData) {
-            // Calculate total score
-            const totalScore = reportData.questions.reduce((acc, question) => {
-                if (question.answer !== '') {
-                    return acc + (question.score || 0);
-                }
-                return acc;
-            }, 0);
-    
-            // Calculate maximum possible score for answered questions
-            const answeredQuestionsCount = reportData.questions.filter(question => question.answer !== '').length;
-            const maxPossibleScore = answeredQuestionsCount * 3;
-    
+            const totalScore = reportData.questions.reduce((acc, question) => question.answer ? acc + question.score : acc, 0);
+            const maxScore = reportData.questions.filter(question => question.answer).length * 3;
             setOverallScore(totalScore);
-            setMaxPossibleScore(maxPossibleScore);
-        }
-    }, [reportData]);
-    
+            setMaxPossibleScore(maxScore);
 
-    // Function to render score as symbol
+            const questionsAnswered = reportData.questions.filter(q => q.answer).length;
+            if (questionsAnswered > 0) {
+                const averageScore = overallScore / questionsAnswered;
+                const roundedScore = Math.round(averageScore);
+                setOverallRating(renderScore(roundedScore));
+            }
+        }
+    }, [reportData, overallScore]);
+
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.key === 'Escape') {
+                onClose();
+            } else if (event.key === 'ArrowDown') {
+                setFocusedIndex(prevIndex => Math.min(prevIndex + 1, reportData?.questions.length - 1));
+            } else if (event.key === 'ArrowUp') {
+                setFocusedIndex(prevIndex => Math.max(prevIndex - 1, -1));
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [onClose, reportData]);
+
+    const handleQuestionClick = (index) => {
+        setFocusedIndex(index);
+    };
+
     const renderScore = (score) => {
         switch (score) {
             case 3:
@@ -54,28 +73,49 @@ const Report = ({ fileName, fileContent, onClose }) => {
     };
 
     return (
-        <div className="modal-overlay">
-            <div className="modal">
-                <button className="close-btn" onClick={onClose}>Close</button>
-                <h2>{fileName}</h2>
-                {reportData && (
-                    <div className="report-content">
-                        <p>Author: {reportData.author}</p>
-                        <ul className="question-list">
-                            {reportData.questions.map((question, index) => (
-                                question.answer !== '' && (
-                                    <li key={index} className="question-item">
-                                        <span className="question-text">{index + 1}. {question.text}</span>{' '}
-                                        <span className={`score-${question.score || 0}`}>
-                                            {renderScore(question.score || 0)}
-                                        </span>
-                                    </li>
-                                )
+        <div className={`modal-overlay ${colorBlindMode}`} role="dialog" aria-modal="true" aria-labelledby="reportTitle" tabIndex="-1">
+            <div className="modal" role="document">
+                <button className="close-btn" onClick={onClose} aria-label="Close report">Close</button>
+                <h2 id="reportTitle">{reportData?.name || fileName}</h2>
+                <div className="report-metadata">
+                    <p><strong>Author:</strong> <span>{reportData?.author}</span></p>
+                    <p><strong>Date:</strong> <span>{reportData?.dateCreated}</span></p>
+                    <p><strong>Time:</strong> <span>{reportData?.timeCreated}</span></p>
+                </div>
+                <div className="report-content">
+                    {reportData && (
+                        <div>
+                            {reportData.questions.filter(q => q.answer).map((question, index) => (
+                                <div className={`report-section ${focusedIndex === index ? 'focused' : ''}`} key={index} aria-labelledby={`questionTitle${index}`} onClick={() => handleQuestionClick(index)}>
+                                    <h3 id={`questionTitle${index}`} className="question-text">
+                                        Q{index + 1}: {question.text}
+                                    </h3>
+                                    <span className={`score score-${question.score}`} aria-hidden="true">
+                                        {renderScore(question.score)}
+                                    </span>
+                                    <p className="principle">{question.principle}</p>
+                                    {question.answer && (
+                                        <>
+                                            <p className="answer"><strong>Answer:</strong> {question.answer}</p>
+                                            {question.explanation && (
+                                                <p className="explanation">{question.explanation}</p>
+                                            )}
+                                        </>
+                                    )}
+                                </div>
                             ))}
-                        </ul>
-                        <p>Total Score: {overallScore} / {maxPossibleScore}</p>
-                    </div>
-                )}
+                        </div>
+                    )}
+                </div>
+                <div className="report-footer">
+                    <p>Total Score: {overallScore} / {maxPossibleScore}</p>
+                    <p>
+                        Overall Score:
+                        <span className={`score score-${(Math.round((overallScore / maxPossibleScore) * 3))}`}>
+                            {renderScore(Math.round((overallScore / maxPossibleScore) * 3))}
+                        </span>
+                    </p>
+                </div>
             </div>
         </div>
     );
