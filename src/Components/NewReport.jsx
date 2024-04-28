@@ -1,23 +1,19 @@
-// NewReport.jsx
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../CSS/newReport.css'; // Import your CSS file for styling
-import { questions } from '../Reports/reportQuestions'; // Import the questions array
+import '../CSS/newReport.css'; 
+import { questions } from '../Reports/reportQuestions';
 
 const NewReport = ({ darkMode, colorBlindMode }) => {
-    // State to store form data
     const [formData, setFormData] = useState({});
     const [explanations, setExplanations] = useState({});
 
-    const navigate = useNavigate(); // Use useNavigate hook to navigate
+    const navigate = useNavigate(); 
 
     const handleExplanationChange = (event, questionIndex) => {
             const { value } = event.target;
             setExplanations({ ...explanations, [questionIndex]: value });
         };
 
-    // Function to handle form submission
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -26,14 +22,11 @@ const NewReport = ({ darkMode, colorBlindMode }) => {
             return;
         }
 
-    
-
-        // Generate JSON object from form data
         const reportData = {
             name: formData.name,
             dateCreated: new Date().toISOString().split('T')[0], // Current date in YYYY-MM-DD format
             timeCreated: new Date().toTimeString().split(' ')[0], // Current time in HH:MM:SS format
-            version: 1, // You can adjust this based on your application logic
+            version: 1, 
             author: formData.author,
             questions: questions.map((questionObj, index) => {
                 const answerIndex = questionObj.answers.findIndex(answer => answer === formData[`answer${index + 1}`]);
@@ -50,28 +43,21 @@ const NewReport = ({ darkMode, colorBlindMode }) => {
         // Convert JSON object to a Blob
         const blob = new Blob([JSON.stringify(reportData, null, 2)], { type: 'application/json' });
 
-        // Create a temporary anchor element
         const anchor = document.createElement('a');
         anchor.href = URL.createObjectURL(blob);
-        anchor.download = `${formData.name}.json`; // Set filename to report name
-        // Trigger the anchor click to initiate download
+        anchor.download = `${formData.name}.json`; 
         anchor.click();
-
-        // Clean up
         URL.revokeObjectURL(anchor.href);
 
-        // Navigate to the downloads route
         navigate('/reports');
     };
 
-    // Function to handle form input changes for dropdowns
     const handleDropdownChange = (event, questionIndex) => {
         const { value } = event.target;
         const answerIndex = questions[questionIndex].answers.findIndex(answer => answer === value);
 
         setFormData({ ...formData, [`answer${questionIndex + 1}`]: value });
 
-        // Automatically remove the explanation if the top score is selected
         if (answerIndex === 0) {
             setExplanations({ ...explanations, [questionIndex]: '' });
         }

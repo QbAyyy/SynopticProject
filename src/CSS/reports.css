@@ -1,4 +1,4 @@
-/* Base and Dark Mode Styles */
+
 html, body {
   margin: 0;
   padding: 0;
@@ -23,7 +23,7 @@ html, body {
   --background-color: #333;
   --header-bg-color: #1a1a1a;
   --text-color: #ffffff;
-  --accent-color: #ff5722; /* Coral color for the button */
+  --accent-color: #ff5722; 
   --button-hover-color: #e64a19;
   --border-color: #333333;
   --error-color: #ff0033;
@@ -32,7 +32,6 @@ html, body {
   --box-shadow-color: rgba(255,255,255,0.1);
 }
 
-/* General Styles */
 .reports-container {
   width: 100%;
   height: 100vh;
@@ -105,7 +104,6 @@ html, body {
   z-index: 10;
 }
 
-/* Media Queries for responsiveness */
 @media (max-width: 768px) {
   .header {
       flex-direction: column;

@@ -1,129 +1,125 @@
 .top-bar {
-    background-color: #2858df;
-    padding: 10px 20px; /* Add some padding on the sides */
-    display: flex;
-    justify-content: space-between; /* Changed from space-around to space-between */
-    align-items: center;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    transition: background-color 0.3s ease;
-  }
+  background-color: #2858df;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
 
-  .top-bar-dark{
-    background-color: #ff5722;
-    padding: 10px 20px; /* Add some padding on the sides */
-    display: flex;
-    justify-content: space-between; /* Changed from space-around to space-between */
-    align-items: center;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    transition: background-color 0.3s ease;
-  }
-  
-  .title {
-    color: whitesmoke;
-    font-size: 2em;
-    font-family: 'Trebuchet MS', sans-serif;
-    margin-left: 20px; /* Give some space from the left edge */
-    padding-right: 20px;
-  }
+.top-bar-dark {
+  background-color: #ff5722;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
 
-  .title-dark {
-    color: #333;
-    font-size: 2em;
-    font-family: 'Trebuchet MS', sans-serif;
-    margin-left: 20px; /* Give some space from the left edge */
-    padding-right: 20px;
-  }
-  
-  .top-bar-controls {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    flex-grow: 1; /* Allows the buttons to take up as much space as needed */
-  }
-  
-  .top-bar button {
-    background-color: #ddd;
-    color: #333;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin: 0 10px; /* Add some space between buttons */
-  }
-  
-  .top-bar button:hover {
-    background-color: #bbb;
-  }
+.title {
+  color: whitesmoke;
+  font-size: 2em;
+  font-family: 'Trebuchet MS', sans-serif;
+  margin-left: 20px;
+  padding-right: 20px;
+}
 
-  .top-bar-dark button {
-    background-color: #333;
-    color: #ddd;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin: 0 10px; /* Add some space between buttons */
-  }
-  
-  .top-bar-dark button:hover {
-    background-color: #555;
-  }
-  
-  
-  
-  .toggle-container {
-    display: flex;
-    align-items: center; /* Align items vertically */
-    padding-right: 10px;
-  }
-  
-  .toggle-text {
-    margin-right: 10px; /* Add some space between the text and the slider */
-    color: white; /* Or any color that suits your dark mode */
-    font-size: 0.9em; /* Adjust as needed */
-  }
-  
-  
-  .toggle-input {
-    display: none;
-  }
-  
-  .toggle-label {
-    display: inline-block;
-    cursor: pointer;
-    width: 60px;
-    height: 30px;
-    background-color: #ccc;
-    border-radius: 15px;
-    position: relative;
-    transition: background-color 0.3s ease;
-  }
-  
-  .toggle-input:checked + .toggle-label {
-    background-color: #333; /* Dark mode slider color */
-  }
-  
-  .toggle-label::after {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 26px;
-    height: 26px;
-    background-color: white;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-  }
-  
-  .toggle-input:checked + .toggle-label::after {
-    transform: translateX(30px); /* Slide to the right for dark mode */
-  }
-  
+.title-dark {
+  color: #333;
+  font-size: 2em;
+  font-family: 'Trebuchet MS', sans-serif;
+  margin-left: 20px;
+  padding-right: 20px;
+}
+
+.top-bar-controls {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.top-bar button {
+  background-color: #ddd;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 10px;
+}
+
+.top-bar button:hover {
+  background-color: #bbb;
+}
+
+.top-bar-dark button {
+  background-color: #333;
+  color: #ddd;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 10px;
+}
+
+.top-bar-dark button:hover {
+  background-color: #555;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.toggle-text {
+  margin-right: 10px;
+  color: white;
+  font-size: 0.9em;
+}
+
+.toggle-input {
+  display: none;
+}
+
+.toggle-label {
+  display: inline-block;
+  cursor: pointer;
+  width: 60px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 15px;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-input:checked + .toggle-label {
+  background-color: #333;
+}
+
+.toggle-label::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 26px;
+  height: 26px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.toggle-input:checked + .toggle-label::after {
+  transform: translateX(30px);
+}
