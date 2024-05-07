@@ -12,7 +12,9 @@ const TopBar = ({ darkMode, onToggleDarkMode,colorBlindMode, setColorBlindMode }
 
 	return (
 		<div className={darkMode ? "top-bar-dark":"top-bar"}>
-			<div className={darkMode ? "title-dark" : 'title'}>PrivacyProtect</div>
+			<Link to="/">
+				<div className={darkMode ? "title-dark" : 'title'}>PrivacyProtect</div>
+			</Link>
 			
 			<div className='toggle-container'>
 				<input
